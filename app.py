@@ -3,6 +3,30 @@ import numpy as np
 import plotly.graph_objects as go
 
 st.set_page_config(page_title="Modelo Macro BTC", page_icon="₿", layout="wide")
+st.markdown("""
+<style>
+    /* Fundo principal */
+    .stApp { background: linear-gradient(135deg, #0E1117 0%, #1A1D27 100%); }
+
+    /* Título grande */
+    h1 { color: #F7931A !important; font-weight: 800 !important; }
+
+    /* Métricas */
+    [data-testid="metric-container"] {
+        background: #1A1D27;
+        border: 1px solid #F7931A;
+        border-radius: 10px;
+        padding: 15px;
+    }
+
+    /* Sidebar */
+    [data-testid="stSidebar"] { background: #13151F; }
+
+    /* Sliders - cor laranja BTC */
+    .stSlider > div > div > div > div { background: #F7931A; }
+</style>
+""", unsafe_allow_html=True)
+
 st.title("₿ Modelo Macro Bitcoin — S2F + M2 + Adoção")
 st.markdown("Ajusta os parâmetros e vê a projeção atualizar em tempo real.")
 
