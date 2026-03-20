@@ -9,7 +9,17 @@ st.markdown("Ajusta os parâmetros e vê a projeção atualizar em tempo real.")
 # ── SLIDERS (sidebar) ──────────────────────────────────────
 st.sidebar.header("⚙️ Parâmetros do Modelo")
 
-P0              = st.sidebar.number_input("Preço atual BTC ($)", 10000, 500000, 85000, 1000)
+import yfinance as yf
+
+@st.cache_data(ttl=300)  # atualiza a cada 5 minutos
+def get_btc_price():
+    btc = yf.Ticker("BTC-USD")
+    return btc.fast_info['last_price']
+
+preco_live = get_btc_price()
+st.sidebar.metric("💰 Preço BTC (live)", f"${preco_live:,.0f}")
+P0 = preco_live
+
 anos_proj       = st.sidebar.slider("Horizonte (anos)", 1, 15, 8)
 M2_growth_anual = st.sidebar.slider("Crescimento M2 anual (%)", 1, 20, 7) / 100
 M2_elasticity   = st.sidebar.slider("Elasticidade BTC ao M2", 0.3, 1.5, 0.8, 0.05)
