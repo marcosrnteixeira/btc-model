@@ -5,17 +5,23 @@ import plotly.graph_objects as go
 st.set_page_config(page_title="Modelo Macro BTC", page_icon="₿", layout="wide")
 st.markdown("""
 <style>
-    /* Sliders */
+    /* Parte preenchida (esquerda - laranja) */
     .stSlider > div > div > div > div { background: #F7931A; }
+
+    /* Parte não preenchida (direita - cinzento escuro) */
+    .stSlider > div > div > div { background: #3D3D3D; }
+
+    /* Botão do slider (bolinha) */
+    .stSlider > div > div > div > div > div { background: #F7931A; }
+
+    /* Título */
+    h1 { color: #F7931A !important; }
     
     /* Botões */
     .stButton > button { border-color: #F7931A; color: #F7931A; }
     
     /* Links */
     a { color: #F7931A !important; }
-
-    /* Título */
-    h1 { color: #F7931A !important; }
 </style>
 """, unsafe_allow_html=True)
 
